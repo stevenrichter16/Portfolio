@@ -3,4 +3,4 @@
 - Author(s): Steven Richter, UW Oshkosh IT Department
 - Date: Spring 2019
 
-Code is not available yet. To run the application run the executable (.NET 4.0 is a requirement).
+Code is not available yet. To run the application run the executable in the Application folder (.NET 4.0 is a requirement).
