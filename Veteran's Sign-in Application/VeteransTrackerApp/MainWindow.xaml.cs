@@ -22,7 +22,6 @@ using System.Windows.Shapes;
 
 namespace VeteransTrackerApp
 {
-
 	public partial class MainWindow : Window
 	{
 		public MainWindow()
