@@ -50,7 +50,6 @@ namespace VeteransTrackerApp
 
 				while (reader.Read())
 				{
-
 					Object initials = reader.GetValue(0);
 					this.initials = initials.ToString();
 
@@ -84,81 +83,80 @@ namespace VeteransTrackerApp
 			MySqlCommand command = null;
 			MySqlDataReader reader = null;
 
-			try
+		try
+		{
+			conn = new MySqlConnection(connectionString);
+			conn.Open();
+
+			// Get all db entries
+			string strCommand = "SELECT * FROM `Records`";
+			command = new MySqlCommand(strCommand, conn);
+			MySqlDataAdapter MyAdapter = new MySqlDataAdapter();
+
+			reader = command.ExecuteReader();
+
+			while (reader.Read())
 			{
-				conn = new MySqlConnection(connectionString);
-				conn.Open();
+			    Object initials = reader.GetValue(0);
+			    this.initials = initials.ToString();
 
-                // Get all db entries
-                string strCommand = "SELECT * FROM `Records`";
-                command = new MySqlCommand(strCommand, conn);
-                MySqlDataAdapter MyAdapter = new MySqlDataAdapter();
+			    Object time = reader.GetValue(1);
+			    this.time = time.ToString();
 
-                reader = command.ExecuteReader();
+			    Object date = reader.GetValue(2);
+			    this.date = date.ToString();
 
-                while (reader.Read())
-                {
-
-                    Object initials = reader.GetValue(0);
-                    this.initials = initials.ToString();
-
-                    Object time = reader.GetValue(1);
-                    this.time = time.ToString();
-
-                    Object date = reader.GetValue(2);
-                    this.date = date.ToString();
-
-                    Object area = reader.GetValue(3);
-                    this.area = area.ToString();
-                    if (lab || desk || lounge || email || phone)
-                    {
-                        string item = "" + this.initials + ", " + this.time + ", " + this.date + ", " + this.area;
-                        export(item);
-                    }
-                }
-            }
-
-            catch
-			{
-				MessageBox.Show("Failed");
+			    Object area = reader.GetValue(3);
+			    this.area = area.ToString();
+			    if (lab || desk || lounge || email || phone)
+			    {
+				string item = "" + this.initials + ", " + this.time + ", " + this.date + ", " + this.area;
+				export(item);
+			    }
 			}
+		    }
+
+		    catch
+				{
+					MessageBox.Show("Failed");
+				}
+			}
+
+			public bool findArea(string areas, string reqArea)
+			{
+				 return areas.ToLower().Contains(reqArea);
+			}
+
+			public void export(string inString)
+			{
+				string path = @"c:\ProgramData\entries.csv";
+
+		    try
+		    {
+			if (!(File.Exists(path)))
+			{
+			    var file = File.Create(path);
+			    StringBuilder content = new StringBuilder();
+			    file.Close();
+			}
+		    }
+
+		    catch (Exception ex)
+		    {
+			Console.WriteLine(ex.Message);
+		    }
+
+		    // This is the entry content
+		    string info = inString;
+
+		    content.AppendLine("Entries");
+		    content.AppendLine(info);
+
+		    File.AppendAllText(path, content.ToString());
+
+		    MessageBox.Show("Successfully downloaded entries.");
+
+		    return;
 		}
-
-		public bool findArea(string areas, string reqArea)
-		{
-			 return areas.ToLower().Contains(reqArea);
-		}
-
-		public void export(string inString)
-		{
-			string path = @"c:\ProgramData\entries.csv";
-
-            try
-            {
-                if (!(File.Exists(path)))
-                {
-                    var file = File.Create(path);
-                    StringBuilder content = new StringBuilder();
-                    file.Close();
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            // This is the entry content
-            string info = inString;
-
-            content.AppendLine("Entries");
-            content.AppendLine(info);
-
-            File.AppendAllText(path, content.ToString());
-
-            MessageBox.Show("Successfully downloaded entries.");
-
-            return;
-        }
 	}
 }

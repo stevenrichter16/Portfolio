@@ -6,7 +6,7 @@
 DISCLAIMER:
 The web server used in this project is no longer available, and therefore the application may not fully work.
 
-Paths to code:
+Path(s) to code:
 Java Code: VeteransTrackerApp\*.cs
 
 All code in the above paths, except the code in MainWindow.xaml.cs, has been written entirely by Steven Richter.
