@@ -10,4 +10,4 @@ Paths to code:
 Java Code: Application\app\src\main\java\com\example\gui\*.java
 PHP Code: PHP\*.php
 
-All code in the above paths was written entirely by Steven Richter
+All code in the above paths has been written entirely by Steven Richter
