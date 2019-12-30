@@ -50,7 +50,6 @@ namespace VeteransTrackerApp
 
 				while (reader.Read())
 				{
-
 					Object initials = reader.GetValue(0);
 					this.initials = initials.ToString();
 
@@ -98,7 +97,6 @@ namespace VeteransTrackerApp
 
                 while (reader.Read())
                 {
-
                     Object initials = reader.GetValue(0);
                     this.initials = initials.ToString();
 
