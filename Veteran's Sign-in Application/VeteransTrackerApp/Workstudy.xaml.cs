@@ -75,8 +75,6 @@ namespace VeteransTrackerApp
 			submittedRecord.SubmitRecord();
 		}
 
-		//Easter Egg window which opens a little game hidden from the Certifying Official 
-		//    to allow the workstudies to play when not bogged down with work
 		private void Game(object sender, RoutedEventArgs e)
 		{
 			Button button = (Button)sender;

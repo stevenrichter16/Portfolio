@@ -1,6 +1,6 @@
 ﻿
 /*
- * Steven Richter + Timothy Davis
+ * Steven Richter
  * UW Oshkosh
  * CS 341
  * Veteran's Department App
@@ -73,7 +73,6 @@ namespace VeteransTrackerApp
 			}
 		}
 
-		//This section made by Timothy, Gets the data from the MySQL based on Date and exports if it contains the correct area
 		public void viewer(string inDateS, string inDateE, string inArea)
 		{
 			bool lab = findArea(inArea, "lab");
@@ -116,43 +115,7 @@ namespace VeteransTrackerApp
                         string item = "" + this.initials + ", " + this.time + ", " + this.date + ", " + this.area;
                         export(item);
                     }
-
-                    // MessageBox.Show(this.initials + ", " + this.time + ", " + this.date + ", " + this.area);
                 }
-
-                //string i = inDateS;
-                //while (i.Equals(inDateS))
-                //{
-                //	string strCommand = "SELECT * FROM `Records` WHERE date='" + i + "'";
-
-                //	command = new MySqlCommand(strCommand, conn);
-                //	MySqlDataAdapter MyAdapter = new MySqlDataAdapter();
-
-                //	reader = command.ExecuteReader();
-
-                //	while (reader.Read())
-                //	{
-
-                //		Object initials = reader.GetValue(0);
-                //		this.initials = initials.ToString();
-
-                //		Object time = reader.GetValue(1);
-                //		this.time = time.ToString();
-
-                //		Object date = reader.GetValue(2);
-                //		this.date = date.ToString();
-
-                //		Object area = reader.GetValue(3);
-                //		this.area = area.ToString();
-                //		if (lab || desk || lounge || email || phone)
-                //		{
-                //			string item = "" + this.initials + ", " + this.time + ", " + this.date + ", " + this.area;
-                //			export(item);
-                //		}
-
-                //		MessageBox.Show(this.initials + ", " + this.time + ", " + this.date + ", " + this.area);
-                //	}
-                //}
             }
 
             catch
@@ -161,16 +124,13 @@ namespace VeteransTrackerApp
 			}
 		}
 
-		//This section made by Timothy, Checks if the area is in the requested area
 		public bool findArea(string areas, string reqArea)
 		{
 			 return areas.ToLower().Contains(reqArea);
 		}
 
-		//This section made by Timothy, Creates or appends a file with todays date for an excel sheet to look up.
 		public void export(string inString)
 		{
-			// string date = DateTime.Today.ToString("mm/dd/yyyy");
 			string path = @"c:\ProgramData\entries.csv";
 
             try
@@ -188,8 +148,6 @@ namespace VeteransTrackerApp
                 Console.WriteLine(ex.Message);
             }
 
-            //StringBuilder content = new StringBuilder();
-
             // This is the entry content
             string info = inString;
 
@@ -201,21 +159,6 @@ namespace VeteransTrackerApp
             MessageBox.Show("Successfully downloaded entries.");
 
             return;
-
-            //if (File.Exists(path))
-            //{
-            //	using (StreamWriter sw = File.AppendText(path))
-            //	{
-            //		sw.WriteLine(inString);
-            //	}
-            //}
-            //else if(!File.Exists(path))
-            //{
-            //	using (StreamWriter sw = File.CreateText(path))
-            //	{
-            //		sw.WriteLine(inString);
-            //	}
-            //}
         }
 	}
 }

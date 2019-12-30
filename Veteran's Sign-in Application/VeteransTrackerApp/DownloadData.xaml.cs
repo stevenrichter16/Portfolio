@@ -1,5 +1,5 @@
 ﻿/*
- * Timothy Davis + Steven Richter
+ * Steven Richter
  * UW Oshkosh
  * CS 341
  * Veterans Department App
@@ -136,7 +136,6 @@ namespace VeteransTrackerApp
             startYearInput = startYearTextbox.Text;
         }
 
-        // This method resets the data to download. The checkboxes clear and the user reselects data to download.
         private void Reset(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
