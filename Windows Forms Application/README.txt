@@ -3,7 +3,4 @@
 - Author(s): Steven Richter, UW Oshkosh IT Department
 - Date: Spring 2019
 
-Path(s) to code:
-Java Code: 
-
-All code in the above paths has been written entirely by Steven Richter.
+Code is not available yet.
