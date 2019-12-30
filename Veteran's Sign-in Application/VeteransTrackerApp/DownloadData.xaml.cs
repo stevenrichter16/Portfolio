@@ -37,12 +37,12 @@ namespace VeteransTrackerApp
 		public bool phone = false;
 		public SubmittedRecord submittedRecord;
 		public RetrievedRecord retrievedRecord;
-        public string startMonthInput;
-        public string endMonthInput;
-        public string startYearInput;
-        public string endYearInput;
-        public string startDateInput;
-        public string endDateInput;
+        	public string startMonthInput;
+        	public string endMonthInput;
+        	public string startYearInput;
+        	public string endYearInput;
+        	public string startDateInput;
+        	public string endDateInput;
 		public DateTime startDate;
 		public DateTime endDate;
 
