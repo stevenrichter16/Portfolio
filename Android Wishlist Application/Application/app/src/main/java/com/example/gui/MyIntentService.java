@@ -1,3 +1,9 @@
+/*
+ * Steven Richter
+ * UW Oshkosh
+ * CS 346
+ * Wishlist Application
+ */
 package com.example.gui;
 
 import android.app.IntentService;
