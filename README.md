@@ -1,4 +1,4 @@
-# Portfolio
+# UW Oshkosh Portfolio
 
 This repository contains a selection of projects I have made through school and work
 
